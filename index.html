@@ -7,56 +7,72 @@
     <link rel="stylesheet" href="css/output.css" />
     <title>Interactive card details form</details></title>
   </head>
-  <body class="w-screen" style="background: linear-gradient(90deg, #4F0857 30%, #FEFEFE 30%)">
+  <body class="w-screen" style="background: linear-gradient(90deg, #4f0857 30%, #fefefe 30%)">
     <div class="container">
       <div class="card-part">
+        <div class="front-card" style="background-image: url('images/bg-card-front.png')">
+          <svg width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff" />
+            <path
+              d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z"
+              stroke="#fff"
+            />
+          </svg>
 
-        <div class="front-card" style="background-image: url('images/bg-card-front.png');">
-          <svg width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff"/><path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/></svg>
-
-          <div class="card-number">
-            <p>0000 0000 0000 0000</p> 
+          <div class="card-number" id=card-number> 0000 0000 0000 0000
           </div>
 
-          <div class="flex justify-between mt-5">
-            <div class="card-name capitalize">
-              <p>JANE APPLESEED</p> 
-            </div>
-            <div class="card-exp">
-              <p>00/00</p> 
-            </div>
+        <div class="flex justify-between mt-5">
+          <div class="card-name capitalize" id="card-name">
+            JANE APPLESEED
           </div>
-          
-        </div>
-
-        <div class="back-card" style="background-image: url('images/bg-card-back.png');">
-          <p class="absolute top-24 left-80 ml-11 mt-3 ">000</p>
+          <div class="card-exp flex" id="card-exp">
+            <p class="card-month">00</p>
+            <p>/</p>
+            <p class="card-year">00</p>
+          </div>
         </div>
       </div>
 
-      <div class="form-section">
-        <div class="form">
-          <p class="form-headings">cardholder name</p>
-          <input type="text" placeholder="eg. Jane Appleseed" class="card-input mb-5 w-full" />
-
-          <p class="form-headings">card number</p>
-          <input type="number" placeholder="e.g 1234 5678 1234 5678" class="card-input mb-5 w-full" />
-
-          <div class="bottom-section">
-            <div class="exp">
-              <p class="form-headings">exp. date (MM/YY)</p>
-              <div class="flex">
-                <input type="number" placeholder="MM" class="card-input w-20 mr-4" />
-                <input type="number" placeholder="YY" class="card-input w-20" />
-              </div>
-            </div>
-
-            <div class="cvc">
-              <p class="form-headings">cvc</p>
-            <input type="number" placeholder="e.g 123" class="card-input w-full" />
-            </div>
-        </div>
+      <div class="back-card" style="background-image: url('images/bg-card-back.png')">
+        <p class="absolute top-24 left-80 ml-11 mt-3" id="back-cvc">000</p>
       </div>
     </div>
+
+    <div class="form-section">
+      <div class="form">
+        <p class="form-headings">cardholder name</p>
+        <input type="text" placeholder="eg. Jane Appleseed" class="card-input mb-5 w-full" id="input-card-name"/>
+
+        <p class="form-headings">card number</p>
+        <input type="number" placeholder="e.g 1234 5678 1234 5678" class="card-input mb-5 w-full" id="input-card-number"/>
+        <p class="number-text hidden">Wrong format,numbers only</p>
+
+        <div class="bottom-section">
+          <div class="exp">
+            <p class="form-headings">exp. date (MM/YY)</p>
+            <div class="flex">
+              <input type="number" placeholder="MM" class="card-input w-20 mr-4" id="input-month"/>
+              <!--<p class="form-text">Can't be blank</p>-->
+              <input type="number" placeholder="YY" class="card-input w-20" id="input-year"/>
+            </div>
+          </div>
+
+          <div class="cvc">
+            <p class="form-headings">cvc</p>
+            <input type="number" placeholder="e.g 123" class="card-input w-full" id="input-cvc"/>
+          </div>
+          
+          <p class="month-text hidden">Can't be blank</p>
+          <p class="cvc-text hidden col-start-2">Can't be empty</p>
+          
+        </div>
+        <button class="btn">Confirm</button>
+        
+      </div>
+      
+      
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
